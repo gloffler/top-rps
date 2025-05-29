@@ -12,12 +12,24 @@ function getComputerChoice() {
 function getHumanChoice() {
     let choice = prompt("Your choice:", "").toLowerCase();
     switch (choice) {
-            case "rock":
-            case "paper":
-            case "scissors": 
-                break;
-            default:
-                getHumanChoice();
-        }
-        return choice
+        case "rock":
+        case "paper":
+        case "scissors": 
+            break;
+        default:
+            getHumanChoice();
+    }
+    return choice
+}
+
+function playRound(humanChoice, computerChoice) {
+
+}
+
+const rounds = 1;
+let humanScore = 0;
+let computerScore = 0;
+
+for (let i = 0; i < rounds; i++) {
+    playRound(getHumanChoice(), getComputerChoice());
 }
