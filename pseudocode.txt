@@ -10,3 +10,13 @@
 | `perf`     | Performance-Verbesserungen                                          |
 | `build`    | Build-System oder Abhängigkeiten geändert (z. B. Webpack, npm)      |
 | `ci`       | CI-Konfigurationen geändert (GitHub Actions, Travis, etc.)          |
+
+
+function getComputerChoice:
+    returns "Rock", "Paper" or "Scissors" randomly
+
+function getHumanChoice:
+    get human choice (toLower) and continue to prompt until valid
+
+function playRound:
+    
