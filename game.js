@@ -31,5 +31,10 @@ let humanScore = 0;
 let computerScore = 0;
 
 for (let i = 0; i < rounds; i++) {
-    playRound(getHumanChoice(), getComputerChoice());
+    let roundWinner = playRound(getHumanChoice(), getComputerChoice());
+    if (roundWinner == "computer") {
+        computerScore++;
+    } else if (roundWinner == "human") {
+        humanScore++;
+    }
 }
