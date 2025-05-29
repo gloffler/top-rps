@@ -1,11 +1,11 @@
 function getComputerChoice() {
     let randomNumber = Math.random();
     if (randomNumber <= 0.3) {
-        return "Rock";
+        return "rock";
     } else if (randomNumber >= 0.6) {
-        return "Paper";
+        return "paper";
     } else {
-        return "Scissors";
+        return "scissors";
     }
 }
 
@@ -23,12 +23,23 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
+    const rules = {
+        rock: "scissors",
+        paper: "rock",
+        scissors: "paper"
+    };
 
+    if (humanChoice === computerChoice) {
+        return "draw";
+    }
+
+    return rules[humanChoice] === computerChoice ? "human" : "computer";
 }
 
-const rounds = 1;
+const rounds = 3;
 let humanScore = 0;
 let computerScore = 0;
+let message;
 
 for (let i = 0; i < rounds; i++) {
     let roundWinner = playRound(getHumanChoice(), getComputerChoice());
@@ -38,3 +49,13 @@ for (let i = 0; i < rounds; i++) {
         humanScore++;
     }
 }
+
+if (humanScore === computerScore) {
+    message = "Draw!";
+} else if (humanScore > computerScore) {
+    message = "Human wins!";
+} else {
+    message = "Computer wins!";
+}
+
+alert(message);
