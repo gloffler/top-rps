@@ -36,26 +36,30 @@ function playRound(humanChoice, computerChoice) {
     return rules[humanChoice] === computerChoice ? "human" : "computer";
 }
 
-const rounds = 3;
-let humanScore = 0;
-let computerScore = 0;
-let message;
-
-for (let i = 0; i < rounds; i++) {
-    let roundWinner = playRound(getHumanChoice(), getComputerChoice());
-    if (roundWinner == "computer") {
-        computerScore++;
-    } else if (roundWinner == "human") {
-        humanScore++;
+function playGame() {
+    const rounds = 3;
+    let humanScore = 0;
+    let computerScore = 0;
+    let message;
+    
+    for (let i = 0; i < rounds; i++) {
+        let roundWinner = playRound(getHumanChoice(), getComputerChoice());
+        if (roundWinner == "computer") {
+            computerScore++;
+        } else if (roundWinner == "human") {
+            humanScore++;
+        }
     }
+    
+    if (humanScore === computerScore) {
+        message = "Draw!";
+    } else if (humanScore > computerScore) {
+        message = "Human wins!";
+    } else {
+        message = "Computer wins!";
+    }
+    
+    alert(message);
 }
 
-if (humanScore === computerScore) {
-    message = "Draw!";
-} else if (humanScore > computerScore) {
-    message = "Human wins!";
-} else {
-    message = "Computer wins!";
-}
-
-alert(message);
+playGame();
