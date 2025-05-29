@@ -37,7 +37,7 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-    const rounds = 3;
+    const rounds = 5;
     let humanScore = 0;
     let computerScore = 0;
     let message;
