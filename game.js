@@ -8,3 +8,16 @@ function getComputerChoice() {
         return "Scissors";
     }
 }
+
+function getHumanChoice() {
+    let choice = prompt("Your choice:", "").toLowerCase();
+    switch (choice) {
+            case "rock":
+            case "paper":
+            case "scissors": 
+                break;
+            default:
+                getHumanChoice();
+        }
+        return choice
+}
