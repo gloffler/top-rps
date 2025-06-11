@@ -31,12 +31,12 @@ button {
   cursor: pointer;
 
   color: white;
-  background-color: #222;
+  background-color: #444;
   border: none;
 }
 
 button:hover {
-  background-color: #444;
+  background-color: #666;
 }
 
 #title {
