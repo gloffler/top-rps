@@ -23,36 +23,50 @@ function playRound(humanChoice, computerChoice) {
   return rules[humanChoice] === computerChoice ? "human" : "computer";
 }
 
-function playGame(humanChoice) {
-  let humanScore = 0;
-  let computerScore = 0;
-  let message;
+const resultDiv = document.getElementById("result");
 
-  let roundWinner = playRound(humanChoice.toLowerCase(), getComputerChoice());
-  if (roundWinner == "computer") {
-    computerScore++;
-  } else if (roundWinner == "human") {
-    humanScore++;
-  }
+let round = 0;
+const maxRounds = 3;
+let humanScore = 0;
+let computerScore = 0;
+let message;
 
-  if (humanScore === computerScore) {
-    message = "Draw!";
-  } else if (humanScore > computerScore) {
-    message = "Human wins!";
-  } else {
-    message = "Computer wins!";
-  }
-
-  resultDiv.textContent = message;
-}
-
-//playGame();
 const buttons = document.querySelector(".buttons");
 buttons.addEventListener("click", (e) => {
   if (e.target.matches("button")) {
-    console.log("You clicked " + e.target.textContent);
-    playGame(e.target.textContent);
+    if (round < maxRounds) {
+      let roundWinner = playRound(
+        e.target.textContent.toLowerCase(),
+        getComputerChoice()
+      );
+
+      if (roundWinner == "computer") {
+        computerScore++;
+      } else if (roundWinner == "human") {
+        humanScore++;
+      }
+
+      resultDiv.textContent = round + 1;
+      round++;
+
+      if (round >= maxRounds) {
+        if (humanScore === computerScore) {
+          resultDiv.textContent = "Draw! Reset in 3 seconds...";
+        } else if (humanScore > computerScore) {
+          resultDiv.textContent = "Human wins! Reset in 3 seconds...";
+          round = 0;
+        } else {
+          resultDiv.textContent = "Computer wins! Reset in 3 seconds...";
+          round = 0;
+        }
+
+        setTimeout(() => {
+          round = 0;
+          humanScore = 0;
+          computerScore = 0;
+          resultDiv.textContent = "New Round!";
+        }, 3000);
+      }
+    }
   }
 });
-
-const resultDiv = document.getElementById("result");
