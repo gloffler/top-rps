@@ -3,9 +3,11 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
 
   background: linear-gradient(
       to bottom,
@@ -23,9 +25,28 @@ body {
   min-height: 100vh;
 }
 
+button {
+  width: 200px;
+  height: 100px;
+  cursor: pointer;
+
+  color: white;
+  background-color: #222;
+  border: none;
+}
+
+button:hover {
+  background-color: #444;
+}
+
 #title {
-    color: white;
-    border: 2px solid #666;
-    border-radius: 10px;
-    padding: 1rem;
+  color: white;
+  border: 2px solid #666;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
 }
