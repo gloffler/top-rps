@@ -9,19 +9,6 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  let choice = prompt("Your choice:", "").toLowerCase();
-  switch (choice) {
-    case "rock":
-    case "paper":
-    case "scissors":
-      break;
-    default:
-      getHumanChoice();
-  }
-  return choice;
-}
-
 function playRound(humanChoice, computerChoice) {
   const rules = {
     rock: "scissors",
@@ -36,19 +23,16 @@ function playRound(humanChoice, computerChoice) {
   return rules[humanChoice] === computerChoice ? "human" : "computer";
 }
 
-function playGame() {
-  const rounds = 5;
+function playGame(humanChoice) {
   let humanScore = 0;
   let computerScore = 0;
   let message;
 
-  for (let i = 0; i < rounds; i++) {
-    let roundWinner = playRound(getHumanChoice(), getComputerChoice());
-    if (roundWinner == "computer") {
-      computerScore++;
-    } else if (roundWinner == "human") {
-      humanScore++;
-    }
+  let roundWinner = playRound(humanChoice.toLowerCase(), getComputerChoice());
+  if (roundWinner == "computer") {
+    computerScore++;
+  } else if (roundWinner == "human") {
+    humanScore++;
   }
 
   if (humanScore === computerScore) {
@@ -59,7 +43,7 @@ function playGame() {
     message = "Computer wins!";
   }
 
-  alert(message);
+  resultDiv.textContent = message;
 }
 
 //playGame();
@@ -67,5 +51,8 @@ const buttons = document.querySelector(".buttons");
 buttons.addEventListener("click", (e) => {
   if (e.target.matches("button")) {
     console.log("You clicked " + e.target.textContent);
+    playGame(e.target.textContent);
   }
 });
+
+const resultDiv = document.getElementById("result");
