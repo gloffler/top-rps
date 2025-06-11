@@ -52,11 +52,14 @@ buttons.addEventListener("click", (e) => {
       if (round >= maxRounds) {
         if (humanScore === computerScore) {
           resultDiv.textContent = "Draw! Reset in 3 seconds...";
+          resultDiv.style.color = "white";
         } else if (humanScore > computerScore) {
-          resultDiv.textContent = "Human wins! Reset in 3 seconds...";
+          resultDiv.textContent = "You win! Reset in 3 seconds...";
+          resultDiv.style.color = "green";
           round = 0;
         } else {
-          resultDiv.textContent = "Computer wins! Reset in 3 seconds...";
+          resultDiv.textContent = "You lose! Reset in 3 seconds...";
+          resultDiv.style.color = "red";
           round = 0;
         }
 
@@ -65,6 +68,7 @@ buttons.addEventListener("click", (e) => {
           humanScore = 0;
           computerScore = 0;
           resultDiv.textContent = "New Round!";
+          resultDiv.style.color = "white";
         }, 3000);
       }
     }
