@@ -54,6 +54,9 @@ button:hover {
 
 #result {
   color: white;
+  background-color: #333;
+  text-align: center;
+  width: 500px;
   padding: 0.5rem;
   margin-top: 10px;
 }
