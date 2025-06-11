@@ -63,3 +63,9 @@ function playGame() {
 }
 
 //playGame();
+const buttons = document.querySelector(".buttons");
+buttons.addEventListener("click", (e) => {
+  if (e.target.matches("button")) {
+    console.log("You clicked " + e.target.textContent);
+  }
+});
